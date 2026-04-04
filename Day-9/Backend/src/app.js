@@ -2,9 +2,11 @@
 
 const express = require('express')
 const noteModel = require('./models/note.model')
+const cors = require('cors')
 
 const app = express()
 app.use(express.json()) // json format mein data bhejne ke liye middleware use karte hain
+app.use(cors()) // cross origin resource sharing ke liye middleware use karte hain, isse hum frontend se backend ko access kar sakte hain
 
 // create new note and dave data in mongodb database (POST)
 app.post('/note',async (req,res)=>{
