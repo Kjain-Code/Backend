@@ -28,3 +28,41 @@ html{
   border-radius: 20px;
   width: 400px;
 }
+
+.create-note{
+  display: flex;
+  margin:1rem;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.create-note button{
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(60, 59, 59);
+  color: rgb(226, 225, 225);
+  cursor: pointer;
+}
+
+.create-note input{
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  width: 400px;
+}
+.create-note input:focus{
+  outline: none;
+}
+
+.create-note button:hover{
+  background-color: rgb(226, 225, 225);
+  color: rgb(60, 59, 59);
+}
+
+.create-note textarea{
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  width: 400px;
+}

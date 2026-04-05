@@ -54,4 +54,10 @@ app.patch('/note/:id', async (req, res) => {
     })
 })
 
+app.use('*name',(req,res)=>{
+    res.send()
+})
+// this is wild card route and it will work when no other route is matched, isse humne last mein use kiya hai kyoki agar humne isse pehle use kar diya to ye route sabhi request ko match kar lega aur koi bhi route kaam nahi karega, isliye humne isse last mein use kiya hai taki agar koi bhi route match nahi hota hai to ye route match ho jaye.
+
+
 module.exports = app
