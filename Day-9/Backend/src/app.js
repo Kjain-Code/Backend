@@ -3,10 +3,14 @@
 const express = require('express')
 const noteModel = require('./models/note.model')
 const cors = require('cors')
+const path = require('path')
 
 const app = express()
 app.use(express.json()) // json format mein data bhejne ke liye middleware use karte hain
 app.use(cors()) // cross origin resource sharing ke liye middleware use karte hain, isse hum frontend se backend ko access kar sakte hain
+app.use(express.static('./public')) // static files ko serve karne ke liye middleware use karte hain, isse hum apne frontend ke static files ko serve kar sakte hain
+app.use(express.static(path.join(__dirname, '../public'))) // static files ko serve karne ke liye middleware use karte hain, isse hum apne frontend ke static files ko serve kar sakte hain, isme humne path module ka use kiya hai taki hum apne frontend ke static files ko serve kar sakein, isme __dirname se hum current directory ka path le rahe hain aur uske baad ../dist se hum apne frontend ke static files ka path de rahe hain, isse hum apne frontend ke static files ko serve kar sakte hain.
+
 
 // create new note and dave data in mongodb database (POST)
 app.post('/note',async (req,res)=>{
@@ -55,7 +59,7 @@ app.patch('/note/:id', async (req, res) => {
 })
 
 app.use('*name',(req,res)=>{
-    res.send()
+    res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 // this is wild card route and it will work when no other route is matched, isse humne last mein use kiya hai kyoki agar humne isse pehle use kar diya to ye route sabhi request ko match kar lega aur koi bhi route kaam nahi karega, isliye humne isse last mein use kiya hai taki agar koi bhi route match nahi hota hai to ye route match ho jaye.
 
